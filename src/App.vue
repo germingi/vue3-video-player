@@ -4,9 +4,16 @@ import "../dist/video-player.css";
 </script>
 
 <template>
-  <VideoPlayer
-    video-url="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
-  />
+  <div class="video-player-container">
+    <VideoPlayer
+      video-url="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+    />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.video-player-container {
+  display: flex;
+  align-items: center;
+}
+</style>
