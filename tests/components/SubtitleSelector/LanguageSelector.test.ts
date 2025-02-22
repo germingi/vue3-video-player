@@ -53,12 +53,12 @@ describe("LanguageSelector", () => {
 
   test("GIVEN first language is selected \
     WHEN FR button clicked \
-    THEN language changed to fr", () => {
+    THEN language changed to fr", async () => {
     isLanguage1Selected = true;
     const wrapper = wrap();
 
     const frButton = wrapper.findAll("button").at(1);
-    frButton?.trigger("click");
+    await frButton?.trigger("click");
 
     expect(setLanguage).toHaveBeenCalledWith("fr");
   });

@@ -39,44 +39,44 @@ describe("SubtitleSelectorEntry", () => {
 
   test("GIVEN subtitle is not downloaded \
     WHEN subtitle is clicked \
-    THEN download prop is called", () => {
+    THEN download prop is called", async () => {
     subtitle.state = SubtitleState.NONE;
 
     const subtitleButton = wrapper.get("button");
-    subtitleButton.trigger("click");
+    await subtitleButton.trigger("click");
 
     expect(downloadSubtitle).toBeCalled();
   });
 
   test("GIVEN subtitle is downloading \
     WHEN subtitle is clicked \
-    THEN download prop is not called", () => {
+    THEN download prop is not called", async () => {
     subtitle.state = SubtitleState.DOWNLOADING;
 
     const subtitleButton = wrapper.get("button");
-    subtitleButton.trigger("click");
+    await subtitleButton.trigger("click");
 
     expect(downloadSubtitle).not.toBeCalled();
   });
 
   test("GIVEN subtitle is downloaded \
     WHEN subtitle is clicked \
-    THEN select prop is called", () => {
+    THEN select prop is called", async () => {
     subtitle.state = SubtitleState.DOWNLOADED;
 
     const subtitleButton = wrapper.get("button");
-    subtitleButton.trigger("click");
+    await subtitleButton.trigger("click");
 
     expect(selectSubtitle).toBeCalled();
   });
 
   test("GIVEN subtitle is active \
     WHEN subtitle is clicked \
-    THEN download prop is not called", () => {
+    THEN download prop is not called", async () => {
     subtitle.state = SubtitleState.ACTIVE;
 
     const subtitleButton = wrapper.get("button");
-    subtitleButton.trigger("click");
+    await subtitleButton.trigger("click");
 
     expect(deselectSubtitle).toBeCalled();
   });
