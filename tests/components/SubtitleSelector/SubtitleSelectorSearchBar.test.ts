@@ -25,12 +25,12 @@ describe("SubtitleSelectorSearchBar", () => {
   });
 
   test("WHEN enter is pressed \
-    THEN search function is called", () => {
+    THEN search function is called", async () => {
     const wrapper = wrap();
 
     const searchBar = wrapper.get("input");
-    searchBar.setValue("hello world");
-    searchBar.trigger("keyup.enter");
+    await searchBar.setValue("hello world");
+    await searchBar.trigger("keyup.enter");
 
     expect(searchSubtitles).toBeCalledWith("hello world", "en");
   });

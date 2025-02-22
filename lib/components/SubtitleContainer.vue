@@ -62,7 +62,11 @@ export default {
 
   color: white;
   font-family: Arial, sans-serif;
-  text-shadow: 1px 1px black, -1px 1px black, 1px -1px black, -1px -1px black;
+  text-shadow:
+    1px 1px black,
+    -1px 1px black,
+    1px -1px black,
+    -1px -1px black;
   white-space: pre-line;
   text-align: center;
 }

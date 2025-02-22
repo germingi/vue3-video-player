@@ -13,10 +13,12 @@
       type="range"
       :min="0"
       :max="videoDuration"
-      @input="(event) => {
-        const target = event.target as HTMLInputElement;
-        setVideoCurrentTime(+target?.value);
-      }"
+      @input="
+        (event) => {
+          const target = event.target as HTMLInputElement;
+          setVideoCurrentTime(+target?.value);
+        }
+      "
     />
     <div class="duration">
       <span>{{ currentTimeFormatted }}</span>
@@ -151,13 +153,13 @@ export default {
     toggleFullScreen() {
       if (this.isFullScreen) {
         if (document.exitFullscreen) {
-          document.exitFullscreen();
+          void document.exitFullscreen();
         } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
+          void document.webkitExitFullscreen();
         } else if (document.mozCancelFullScreen) {
-          document.mozCancelFullScreen();
+          void document.mozCancelFullScreen();
         } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
+          void document.msExitFullscreen();
         }
       } else {
         const el = this.$parent?.$el;

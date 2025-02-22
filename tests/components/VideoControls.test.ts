@@ -76,11 +76,11 @@ describe("VideoControls", () => {
   });
 
   test("WHEN slider value changed \
-    THEN call setVideoCurrentTime", () => {
+    THEN call setVideoCurrentTime", async () => {
     const wrapper = wrap();
     const slider = wrapper.get("input");
 
-    slider.setValue("30");
+    await slider.setValue("30");
 
     expect(setVideoCurrentTime).toHaveBeenCalledWith(30);
   });
