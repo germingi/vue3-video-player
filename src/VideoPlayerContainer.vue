@@ -159,5 +159,8 @@ export default {
   align-items: center;
   justify-content: center;
   width: 90%;
+
+  /* override theme colours */
+  --germingi-lang-select-colour: teal;
 }
 </style>
