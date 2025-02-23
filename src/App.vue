@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import VideoPlayer from "../dist/video-player";
-import "../dist/video-player.css";
+import "../dist/style.css";
 </script>
 
 <template>
