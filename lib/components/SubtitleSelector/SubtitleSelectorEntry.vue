@@ -41,8 +41,7 @@ import "scroll-and-fade-text/style.css";
 import { ArrowDownTrayIcon, TrashIcon } from "@heroicons/vue/24/outline";
 import LoadingSpinner from "../LoadingSpinner.vue";
 import { type PropType } from "vue";
-import type { SubtitleInfo } from "@/models/Subtitles";
-import { SubtitleState } from "@/models/Subtitles";
+import { SubtitleState, type SubtitleInfo } from "@/models/Subtitles";
 
 export default {
   components: {
