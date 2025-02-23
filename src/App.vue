@@ -1,19 +1,7 @@
 <script setup lang="ts">
-import VideoPlayer from "../dist/video-player";
-import "../dist/video-player.css";
+import VideoPlayerContainer from "./VideoPlayerContainer.vue";
 </script>
 
 <template>
-  <div class="video-player-container">
-    <VideoPlayer
-      video-url="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
-    />
-  </div>
+  <VideoPlayerContainer />
 </template>
-
-<style scoped>
-.video-player-container {
-  display: flex;
-  align-items: center;
-}
-</style>

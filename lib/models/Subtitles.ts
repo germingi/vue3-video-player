@@ -5,10 +5,7 @@ interface SubtitleCue {
 }
 
 interface SubtitleInfo {
-  downloadCount: number;
   state: SubtitleState;
-  foreignOnly: boolean;
-  fps: number;
   id: number;
   language: string;
   title: string;

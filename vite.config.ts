@@ -34,6 +34,10 @@ export default defineConfig({
         globals: {
           vue: "Vue",
         },
+        assetFileNames(assetInfo) {
+          if (assetInfo.name == "video-player.css") return "style.css";
+          return assetInfo.name;
+        },
       },
     },
   },
