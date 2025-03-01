@@ -26,6 +26,7 @@
       class="subtitles-container"
       :cues="subtitles?.cues ?? []"
       :video-time="videoTime"
+      @click="toggleVideoPlay"
     />
     <div v-show="loadingMetaData || seeking" class="loading-metadata">
       <div class="spinner">
