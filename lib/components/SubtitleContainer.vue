@@ -59,6 +59,8 @@ export default {
 <style scoped>
 .subtitle-container {
   padding: 0.5em;
+  min-width: 100%;
+  box-sizing: border-box;
 
   color: white;
   font-family: Arial, sans-serif;
