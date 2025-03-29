@@ -1,6 +1,6 @@
 # vue3-video-player
 
-Vue 3 video player component with subtitle support. 
+Vue 3 video player component with subtitle support and theme configuration. 
 
 ![image](https://github.com/user-attachments/assets/0a977a7a-15a4-4cfc-85c5-b2ab4513d95f)
 
