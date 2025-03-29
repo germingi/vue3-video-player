@@ -13,8 +13,8 @@ Based on [this repo](https://github.com/Devuelopers/vue-player).
    ```
 1. Import the component:
     ```js
-    import VideoPlayer from "video-player";
-    import "video-player/style.css";
+    import VideoPlayer from "@germingi/vue3-video-player";
+    import "@germingi/vue3-video-player/style.css";
     ```
 1. Use the component:
     ```vue
