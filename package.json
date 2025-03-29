@@ -1,8 +1,40 @@
 {
-  "name": "vue3-video-player",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@germingi/vue3-video-player",
+  "private": false,
+  "version": "1.0.0",
+  "keywords": [
+    "vue",
+    "vue3",
+    "component",
+    "video",
+    "video player",
+    "subtitles",
+    "mp4",
+    "theme"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/germingi/vue3-video-player#readme",
+  "bugs": {
+    "url": "https://github.com/germingi/vue3-video-player/issues"
+  },
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "browser": "./dist/video-player.umd.cjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/germingi/vue3-video-player"
+  },
+  "module": "./dist/video-player.js",
+  "exports": {
+    ".": {
+      "import": "./dist/video-player.js",
+      "require": "./dist/video-player.umd.cjs",
+      "types": "./dist/video-player.d.ts"
+    },
+    "./style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc",
