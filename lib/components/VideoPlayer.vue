@@ -6,6 +6,7 @@
     }"
     @mousedown="handleShowFunctions"
     @mousemove="handleShowFunctions"
+    @touchend.stop="handleShowFunctions"
     @touchmove.stop="handleShowFunctions"
   >
     <video
@@ -164,7 +165,6 @@ export default {
       }
     },
     handleShowFunctions() {
-      // mouse has moved
       // stop timeouts to hide video controls
       clearTimeout(this.timeoutControls);
       // start the animation to slide up
