@@ -10,14 +10,22 @@
 </template>
 
 <script lang="ts">
-import "../dist/style.css";
 import {
   SubtitleState,
   VideoPlayer,
   type SubtitleCue,
   type SubtitleInfo,
   type VideoPlayerSubtitleProps,
-} from "../dist/video-player";
+} from "@/index";
+
+// import "../dist/style.css";
+// import {
+//   SubtitleState,
+//   VideoPlayer,
+//   type SubtitleCue,
+//   type SubtitleInfo,
+//   type VideoPlayerSubtitleProps,
+// } from "../dist/video-player";
 
 const englishCues: SubtitleCue[] = [
   {
