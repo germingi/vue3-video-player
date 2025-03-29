@@ -36,8 +36,8 @@
 </template>
 
 <script lang="ts">
-import ScrollAndFadeText from "scroll-and-fade-text";
-import "scroll-and-fade-text/style.css";
+import ScrollAndFadeText from "@germingi/scroll-and-fade-text";
+import "@germingi/scroll-and-fade-text/style.css";
 import { ArrowDownTrayIcon, TrashIcon } from "@heroicons/vue/24/outline";
 import LoadingSpinner from "../LoadingSpinner.vue";
 import { type PropType } from "vue";

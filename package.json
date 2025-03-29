@@ -30,9 +30,9 @@
   "module": "./dist/video-player.js",
   "exports": {
     ".": {
+      "types": "./dist/video-player.d.ts",
       "import": "./dist/video-player.js",
-      "require": "./dist/video-player.umd.cjs",
-      "types": "./dist/video-player.d.ts"
+      "require": "./dist/video-player.umd.cjs"
     },
     "./style.css": "./dist/style.css"
   },
@@ -46,9 +46,9 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@germingi/scroll-and-fade-text": "^1.0.6",
     "@heroicons/vue": "^2.2.0",
     "sanitize-html": "^2.14.0",
-    "scroll-and-fade-text": "^1.0.4",
     "vue": "^3.5.13"
   },
   "devDependencies": {
