@@ -88,7 +88,7 @@ describe("VideoPlayer", () => {
     THEN SubtitleSelector starts hidden", () => {
     const wrapper = wrap();
 
-    expect(wrapper.getComponent(SubtitleSelector).isVisible()).toBe(false);
+    expect(wrapper.findComponent(SubtitleSelector).exists()).toBe(false);
   });
 
   test("GIVEN showSubtitlesComponent true \
@@ -97,7 +97,7 @@ describe("VideoPlayer", () => {
     const wrapper = wrap();
     await wrapper.setData({ showSubtitlesComponent: true });
 
-    expect(wrapper.getComponent(SubtitleSelector).isVisible()).toBe(true);
+    expect(wrapper.findComponent(SubtitleSelector).exists()).toBe(true);
   });
 
   test("WHEN render VideoPlayer \
