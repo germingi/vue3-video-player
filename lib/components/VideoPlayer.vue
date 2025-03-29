@@ -34,11 +34,8 @@
         <LoadingSpinner />
       </div>
     </div>
-    <div
-      v-if="subtitles"
-      v-show="showSubtitlesComponent"
-      class="subtitle-selector"
-    >
+    <!-- must use v-if for computations around scroll and fade text -->
+    <div v-if="subtitles && showSubtitlesComponent" class="subtitle-selector">
       <SubtitleSelector
         :delete-subtitle="subtitles?.deleteFunc"
         :download-subtitle="subtitles?.downloadFunc"
