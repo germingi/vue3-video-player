@@ -230,6 +230,7 @@ export default {
   overflow: hidden;
 
   --background-color: var(--germingi-background-colour, #000);
+  --loading-dim-color: var(--germingi-loading-dim-colour, #000a);
   --video-control-colour: var(--germingi-video-control-colour, #2d2d2d);
   --text-colour: var(--germingi-text-colour, #eee);
   --lang-select-colour: var(--germingi-lang-select-colour, #904efc);
@@ -243,6 +244,7 @@ export default {
   background-color: var(--background-color);
 }
 .video-container > .loading-metadata {
+  background-color: var(--loading-dim-color);
   display: flex;
   align-items: center;
   justify-content: center;
