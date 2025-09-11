@@ -2,6 +2,7 @@
   <div class="video-player-container">
     <VideoPlayer
       :subtitles="subtitleProps"
+      title="Big Buck Bunny"
       :video-width="1280"
       :video-height="720"
       video-url="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
@@ -17,15 +18,6 @@ import {
   type SubtitleInfo,
   type VideoPlayerSubtitleProps,
 } from "@/index";
-
-// import "../dist/style.css";
-// import {
-//   SubtitleState,
-//   VideoPlayer,
-//   type SubtitleCue,
-//   type SubtitleInfo,
-//   type VideoPlayerSubtitleProps,
-// } from "../dist/video-player";
 
 const englishCues: SubtitleCue[] = [
   {
