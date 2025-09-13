@@ -48,6 +48,7 @@ export default {
 
   container-type: size;
   font-size: 3ch;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .overlay.active {
   opacity: 100;
@@ -55,13 +56,14 @@ export default {
 .overlay > .title {
   opacity: 0;
   transition: 100ms;
-  top: 8%;
-  left: 6%;
+  top: 6%;
+  left: 4%;
   position: absolute;
 }
 .overlay > .title.active {
   opacity: 100;
   top: 6%;
+  left: 6%;
 }
 .overlay > .spinner {
   height: 25%;
