@@ -1,6 +1,6 @@
 <template>
   <div :class="{ overlay: true, active: isPaused || isLoading }">
-    <h1 :class="{ active: isPaused }">{{ title }}</h1>
+    <h1 :class="{ title: true, active: isPaused }">{{ title }}</h1>
     <div v-show="isLoading" class="spinner">
       <LoadingSpinner />
     </div>
@@ -52,14 +52,14 @@ export default {
 .overlay.active {
   opacity: 100;
 }
-.overlay > h1 {
+.overlay > .title {
   opacity: 0;
   transition: 100ms;
   top: 8%;
   left: 6%;
   position: absolute;
 }
-.overlay > h1.active {
+.overlay > .title.active {
   opacity: 100;
   top: 6%;
 }

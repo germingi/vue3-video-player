@@ -31,8 +31,8 @@
     />
     <VideoOverlay
       :title="title"
-      :isPaused="isVideoPaused"
-      :isLoading="loadingMetaData || seeking"
+      :is-paused="isVideoPaused"
+      :is-loading="loadingMetaData || seeking"
     />
     <!-- must use v-if for computations around scroll and fade text -->
     <div v-if="subtitles && showSubtitlesComponent" class="subtitle-selector">
@@ -68,7 +68,6 @@
 import { ref, type PropType } from "vue";
 import SubtitleContainer from "./SubtitleContainer.vue";
 import SubtitleSelector from "./SubtitleSelector/SubtitleSelector.vue";
-import LoadingSpinner from "./LoadingSpinner.vue";
 import VideoControls from "./VideoControls.vue";
 import VideoOverlay from "./VideoOverlay.vue";
 import type { SubtitleCue, SubtitleInfo } from "@/models/Subtitles";
@@ -91,7 +90,6 @@ export type VideoPlayerSubtitleProps = {
 export default {
   name: "VideoPlayer",
   components: {
-    LoadingSpinner,
     SubtitleContainer,
     SubtitleSelector,
     VideoControls,
