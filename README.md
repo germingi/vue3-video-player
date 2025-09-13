@@ -53,6 +53,7 @@ If you're not a fan of the default theme, you can customise it by changing these
 |name|default|
 |---|---|
 |--germingi-background-colour|![#000](https://placehold.co/15x15/000/000.png) `#000`|
+|--germingi-overlay-dim-colour|![#000a](https://placehold.co/15x15/000a/000a.png) `#000a`|
 |--germingi-video-control-colour|![#2d2d2d](https://placehold.co/15x15/2d2d2d/2d2d2d.png) `#2d2d2d`|
 |--germingi-text-colour|![#eee](https://placehold.co/15x15/eee/eee.png) `#eee`|
 |--germingi-lang-select-colour|![#904efc](https://placehold.co/15x15/904efc/904efc.png) `#904efc`|

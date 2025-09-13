@@ -29,11 +29,11 @@
       :video-time="videoTime"
       @click="toggleVideoPlay"
     />
-    <div v-show="loadingMetaData || seeking" class="loading-metadata">
-      <div class="spinner">
-        <LoadingSpinner />
-      </div>
-    </div>
+    <VideoOverlay
+      :title="title"
+      :is-paused="isVideoPaused"
+      :is-loading="loadingMetaData || seeking"
+    />
     <!-- must use v-if for computations around scroll and fade text -->
     <div v-if="subtitles && showSubtitlesComponent" class="subtitle-selector">
       <SubtitleSelector
@@ -69,7 +69,7 @@ import { ref, type PropType } from "vue";
 import SubtitleContainer from "./SubtitleContainer.vue";
 import SubtitleSelector from "./SubtitleSelector/SubtitleSelector.vue";
 import VideoControls from "./VideoControls.vue";
-import LoadingSpinner from "./LoadingSpinner.vue";
+import VideoOverlay from "./VideoOverlay.vue";
 import type { SubtitleCue, SubtitleInfo } from "@/models/Subtitles";
 
 const CONTROL_TIMEOUT_MS = 6000;
@@ -90,15 +90,19 @@ export type VideoPlayerSubtitleProps = {
 export default {
   name: "VideoPlayer",
   components: {
-    LoadingSpinner,
     SubtitleContainer,
     SubtitleSelector,
     VideoControls,
+    VideoOverlay,
   },
   props: {
     subtitles: {
       type: Object as PropType<VideoPlayerSubtitleProps>,
       default: null,
+    },
+    title: {
+      type: String,
+      default: "",
     },
     videoHeight: {
       type: Number,
@@ -125,7 +129,6 @@ export default {
     return {
       loadingMetaData: true,
       seeking: false,
-      showProgressBar: false,
       showSubtitlesComponent: false,
       timeoutControls: undefined as NodeJS.Timeout | undefined,
       videoSrc: this.videoUrl,
@@ -230,6 +233,7 @@ export default {
   overflow: hidden;
 
   --background-color: var(--germingi-background-colour, #000);
+  --overlay-dim-color: var(--germingi-overlay-dim-colour, #000a);
   --video-control-colour: var(--germingi-video-control-colour, #2d2d2d);
   --text-colour: var(--germingi-text-colour, #eee);
   --lang-select-colour: var(--germingi-lang-select-colour, #904efc);
@@ -241,18 +245,6 @@ export default {
   --sub-entry-hover-colour: var(--germingi-sub-entry-hover-colour, #333);
 
   background-color: var(--background-color);
-}
-.video-container > .loading-metadata {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.video-container > .loading-metadata > .spinner {
-  height: 25%;
-  aspect-ratio: 1;
 }
 .video-container > video {
   width: 100%;

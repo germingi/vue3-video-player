@@ -1,7 +1,7 @@
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import SubtitleContainer from "@/components/SubtitleContainer.vue";
 import SubtitleSelector from "@/components/SubtitleSelector/SubtitleSelector.vue";
 import VideoControls from "@/components/VideoControls.vue";
+import VideoOverlay from "@/components/VideoOverlay.vue";
 import VideoPlayer, {
   type VideoPlayerSubtitleProps,
 } from "@/components/VideoPlayer.vue";
@@ -23,6 +23,7 @@ const subtitles: VideoPlayerSubtitleProps = {
   subtitles: [],
   cues: [],
 };
+const title = "some title";
 const videoHeight = 1080;
 const videoWidth = 1920;
 const videoUrl = "www.someurl.com";
@@ -32,6 +33,7 @@ describe("VideoPlayer", () => {
     return mount(VideoPlayer, {
       props: {
         subtitles,
+        title,
         videoHeight,
         videoWidth,
         videoUrl,
@@ -110,7 +112,7 @@ describe("VideoPlayer", () => {
   });
 
   test.each`
-    loadingMetaData | seeking  | videoControlsExists | spinnerVisible
+    loadingMetaData | seeking  | videoControlsExists | overlayLoading
     ${false}        | ${false} | ${true}             | ${false}
     ${false}        | ${true}  | ${true}             | ${true}
     ${true}         | ${false} | ${false}            | ${true}
@@ -120,17 +122,17 @@ describe("VideoPlayer", () => {
     AND seeking = $seeking \
     WHEN render VideoPlayer \
     THEN videoControlsExists = $videoControlsExists \
-    AND spinnerVisible = $spinnerVisible",
+    AND overlayLoading = $overlayLoading",
     async ({
       loadingMetaData,
       seeking,
       videoControlsExists,
-      spinnerVisible,
+      overlayLoading,
     }: {
       loadingMetaData: boolean;
       seeking: boolean;
       videoControlsExists: boolean;
-      spinnerVisible: boolean;
+      overlayLoading: boolean;
     }) => {
       const wrapper = wrap();
       await wrapper.setData({ loadingMetaData, seeking });
@@ -138,9 +140,33 @@ describe("VideoPlayer", () => {
       expect(wrapper.findComponent(VideoControls).exists()).toBe(
         videoControlsExists,
       );
-      expect(wrapper.getComponent(LoadingSpinner).isVisible()).toBe(
-        spinnerVisible,
-      );
+      const overlay = wrapper.getComponent(VideoOverlay);
+      expect(overlay.props("isLoading")).toBe(overlayLoading);
+    },
+  );
+
+  test("GIVEN title prop \
+    WHEN render VideoPlayer \
+    THEN VideoOverlay title is set", () => {
+    const wrapper = wrap();
+    const overlay = wrapper.getComponent(VideoOverlay);
+
+    expect(overlay.props("title")).toBe(title);
+  });
+
+  test.each`
+    isVideoPaused
+    ${true}
+    ${false}
+  `(
+    "WHEN VideoPlayer data isVideoPaused is $isVideoPaused \
+    THEN VideoOverlay isPaused prop is $isVideoPaused",
+    async ({ isVideoPaused }) => {
+      const wrapper = wrap();
+      await wrapper.setData({ isVideoPaused });
+      const overlay = wrapper.getComponent(VideoOverlay);
+
+      expect(overlay.props("isPaused")).toBe(isVideoPaused);
     },
   );
 });
