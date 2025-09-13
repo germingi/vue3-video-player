@@ -33,6 +33,26 @@ export default {
 </script>
 
 <style scoped>
+@container (height < 16rem) {
+  .title {
+    font-size: 1.5rem;
+  }
+}
+@container (16rem < height < 32rem) {
+  .title {
+    font-size: 2rem;
+  }
+}
+@container (32rem < height < 64rem) {
+  .title {
+    font-size: 3rem;
+  }
+}
+@container (64rem < height) {
+  .title {
+    font-size: 5rem;
+  }
+}
 .overlay {
   pointer-events: none;
   opacity: 0;
@@ -47,7 +67,6 @@ export default {
   position: absolute;
 
   container-type: size;
-  font-size: 3ch;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .overlay.active {
@@ -56,9 +75,17 @@ export default {
 .overlay > .title {
   opacity: 0;
   transition: 100ms;
+
+  display: inline-block;
+  width: 88%;
   top: 6%;
   left: 4%;
   position: absolute;
+
+  white-space: nowrap;
+  text-wrap: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .overlay > .title.active {
   opacity: 100;
