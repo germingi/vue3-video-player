@@ -2,7 +2,7 @@
   "name": "@germingi/vue3-video-player",
   "description": "Vue 3 video player component with subtitle support and theme configuration.",
   "private": false,
-  "version": "1.1.0",
+  "version": "1.1.1",
   "keywords": [
     "vue",
     "vue3",
