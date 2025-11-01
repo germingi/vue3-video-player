@@ -87,6 +87,11 @@ export type VideoPlayerSubtitleProps = {
   secondSearchLanguage?: string;
 };
 
+export type VideoPlayerCallbackEvent = {
+  event: string;
+  callback: (...args: any[]) => void;
+};
+
 export default {
   name: "VideoPlayer",
   components: {
@@ -96,6 +101,10 @@ export default {
     VideoOverlay,
   },
   props: {
+    callbacks: {
+      type: Array as PropType<VideoPlayerCallbackEvent[]>,
+      default: [],
+    },
     subtitles: {
       type: Object as PropType<VideoPlayerSubtitleProps>,
       default: null,
@@ -150,9 +159,25 @@ export default {
     this.startHideVideoControlsTimeout();
 
     window.addEventListener("keydown", this.handleShowFunctions);
+
+    // register any callbacks
+    this.callbacks.forEach((callbackEvent) => {
+      this.videoPlayerRef?.addEventListener(
+        callbackEvent.event,
+        callbackEvent.callback,
+      );
+    });
   },
   beforeUnmount() {
     window.removeEventListener("keydown", this.handleShowFunctions);
+
+    // unregister any callbacks
+    this.callbacks.forEach((callbackEvent) => {
+      this.videoPlayerRef?.removeEventListener(
+        callbackEvent.event,
+        callbackEvent.callback,
+      );
+    });
   },
   methods: {
     controlsSlideUp() {
