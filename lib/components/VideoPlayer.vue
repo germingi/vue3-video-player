@@ -89,7 +89,7 @@ export type VideoPlayerSubtitleProps = {
 
 export type VideoPlayerCallbackEvent = {
   event: string;
-  callback: (...args: any[]) => void;
+  callback: (event?: Event) => void;
 };
 
 export default {
@@ -103,7 +103,7 @@ export default {
   props: {
     callbacks: {
       type: Array as PropType<VideoPlayerCallbackEvent[]>,
-      default: [],
+      default: () => [],
     },
     subtitles: {
       type: Object as PropType<VideoPlayerSubtitleProps>,

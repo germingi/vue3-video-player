@@ -38,7 +38,7 @@ Based on [this repo](https://github.com/Devuelopers/vue-player).
 |prop|type|required|notes|
 |---|---|---|---|
 |event|string|required|name of the video event|
-|callback|(...args: any[]) => void|required|function that's called when the event is triggered|
+|callback|(event?: Event) => void|required|function that's called when the event is triggered|
 
 ### Subtitle props
 
