@@ -1,6 +1,7 @@
 <template>
   <div class="video-player-container">
     <VideoPlayer
+      :callbacks="callbacks"
       :subtitles="subtitleProps"
       title="Big Buck Bunny"
       :video-width="1280"
@@ -83,6 +84,17 @@ export default {
   },
   data: () => {
     return {
+      callbacks: [
+        {
+          event: "timeupdate",
+          callback: () => {
+            const video = document.querySelector("video");
+            const percentPlayed =
+              ((video?.currentTime ?? 0) / (video?.duration ?? 1)) * 100;
+            console.log(`Video is ${percentPlayed.toFixed(2)}% played`);
+          },
+        },
+      ],
       subtitles: allSubtitles,
     };
   },
