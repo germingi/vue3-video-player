@@ -26,8 +26,8 @@ Based on [this repo](https://github.com/Devuelopers/vue-player).
 
 |prop|type|required|notes|
 |---|---|---|---|
-|callbacks|see [Callback props](https://github.com/gsproston/vue3-video-player/blob/main/README.md#callback-props)|optional||
-|subtitles|see [Subtitle props](https://github.com/gsproston/vue3-video-player/blob/main/README.md#subtitle-props)|optional||
+|callbacks|see [Callback props](https://github.com/gsproston/vue3-video-player/blob/main/README.md#callback-props)|optional|list of video events and callback methods|
+|subtitles|see [Subtitle props](https://github.com/gsproston/vue3-video-player/blob/main/README.md#subtitle-props)|optional|props relating to subtitles|
 |title|string|optional|title of the video to show when paused|
 |videoHeight|number|optional|height of the video in pixels|
 |videoWidth|number|optional|width of the video in pixels|
