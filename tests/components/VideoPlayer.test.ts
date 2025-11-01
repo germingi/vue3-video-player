@@ -23,6 +23,16 @@ const subtitles: VideoPlayerSubtitleProps = {
   subtitles: [],
   cues: [],
 };
+const callbacks = [
+  {
+    event: "play",
+    callback: vi.fn(),
+  },
+  {
+    event: "pause",
+    callback: vi.fn(),
+  },
+];
 const title = "some title";
 const videoHeight = 1080;
 const videoWidth = 1920;
@@ -32,6 +42,7 @@ describe("VideoPlayer", () => {
   function wrap() {
     return mount(VideoPlayer, {
       props: {
+        callbacks,
         subtitles,
         title,
         videoHeight,
@@ -169,4 +180,29 @@ describe("VideoPlayer", () => {
       expect(overlay.props("isPaused")).toBe(isVideoPaused);
     },
   );
+
+  test("GIVEN callbacks prop \
+    WHEN VideoPlayer is mounted \
+    THEN video event listeners are added on mount", () => {
+    const wrapper = wrap();
+    const videoElement = wrapper.get("video");
+
+    callbacks.forEach(({ event, callback }) => {
+      videoElement.element.dispatchEvent(new Event(event));
+      expect(callback).toHaveBeenCalled();
+    });
+  });
+
+  test("GIVEN callbacks prop \
+    WHEN VideoPlayer is unmounted \
+    THEN video event listeners are removed on unmount", () => {
+    const wrapper = wrap();
+    const videoElement = wrapper.get("video");
+    wrapper.unmount();
+
+    callbacks.forEach(({ event, callback }) => {
+      videoElement.element.dispatchEvent(new Event(event));
+      expect(callback).not.toHaveBeenCalled();
+    });
+  });
 });

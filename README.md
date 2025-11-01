@@ -26,10 +26,19 @@ Based on [this repo](https://github.com/Devuelopers/vue-player).
 
 |prop|type|required|notes|
 |---|---|---|---|
-|subtitles|see [Subtitle props](https://github.com/gsproston/vue3-video-player/edit/6-update-readme/README.md#subtitle-props)|optional||
+|callbacks|see [Callback props](https://github.com/gsproston/vue3-video-player/blob/main/README.md#callback-props)|optional||
+|subtitles|see [Subtitle props](https://github.com/gsproston/vue3-video-player/blob/main/README.md#subtitle-props)|optional||
+|title|string|optional|title of the video to show when paused|
 |videoHeight|number|optional|height of the video in pixels|
 |videoWidth|number|optional|width of the video in pixels|
 |videoUrl|string|required|url to the video|
+
+### Callback props
+
+|prop|type|required|notes|
+|---|---|---|---|
+|event|string|required|name of the video event|
+|callback|(...args: any[]) => void|required|function that's called when the event is triggered|
 
 ### Subtitle props
 
@@ -41,8 +50,8 @@ Based on [this repo](https://github.com/Devuelopers/vue-player).
 |deselectFunc|(subtitleId: number) => void|required|deselects the subtitle with the id|
 |selectFunc|(subtitleId: number) => void|required|selects the subtitle with the id|
 |searchFunc|(searchTerm: string, language: string) => void|required|searches for subtitles|
-|subtitles|[SubtitleInfo](https://github.com/gsproston/vue3-video-player/blob/6-update-readme/lib/models/Subtitles.ts)[]|required|list of subtitles to display|
-|cues|[SubtitleCue](https://github.com/gsproston/vue3-video-player/blob/6-update-readme/lib/models/Subtitles.ts)[]|optional|subtitle cues to render|
+|subtitles|[SubtitleInfo](https://github.com/gsproston/vue3-video-player/blob/main/lib/models/Subtitles.ts)[]|required|list of subtitles to display|
+|cues|[SubtitleCue](https://github.com/gsproston/vue3-video-player/blob/main/models/Subtitles.ts)[]|optional|subtitle cues to render|
 |defaultSearchLanguage|string|optional|the default subtitle search language (default 'en')|
 |secondSearchLanguage|string|optional|the alternative subtitle search language|
 
