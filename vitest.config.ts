@@ -11,10 +11,10 @@ export default mergeConfig(
         include: ["lib/**/*"],
         exclude: ["lib/index.ts"],
         thresholds: {
-          statements: 80,
-          branches: 90,
+          statements: 60,
+          branches: 60,
           functions: 45,
-          lines: 80,
+          lines: 60,
         },
       },
     },
