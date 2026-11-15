@@ -136,7 +136,6 @@ tr:hover {
 
   text-align: left;
   font-size: 1rem;
-  color: var(--text-colour);
   cursor: pointer;
 }
 .icon {
@@ -163,7 +162,6 @@ tr:hover {
   background-color: transparent;
   border-width: 0;
   border-radius: 0.25rem;
-  color: var(--text-colour);
   margin: 0;
   padding: 0;
   cursor: pointer;

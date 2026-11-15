@@ -270,6 +270,7 @@ export default {
   --sub-entry-hover-colour: var(--germingi-sub-entry-hover-colour, #333);
 
   background-color: var(--background-color);
+  color: var(--text-colour);
 }
 .video-container > video {
   width: 100%;

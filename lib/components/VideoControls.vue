@@ -193,14 +193,12 @@ export default {
   padding: 0.25rem;
   width: 100%;
   align-items: center;
-  color: var(--text-colour);
   user-select: none;
 
   opacity: 90%;
 }
 .video-controls > button {
   background-color: transparent;
-  color: var(--text-colour);
   border-width: 0;
   border-radius: 0.25rem;
   padding: 0;

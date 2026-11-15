@@ -50,7 +50,6 @@ export default {
   cursor: pointer;
 
   background-color: var(--sub-entry-colour);
-  color: var(--text-colour);
 
   transition: 0.25s;
 }
