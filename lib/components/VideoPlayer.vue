@@ -272,6 +272,9 @@ export default {
   background-color: var(--background-color);
   color: var(--text-colour);
 }
+.video-container button {
+  color: var(--text-colour);
+}
 .video-container > video {
   width: 100%;
   height: 100%;
