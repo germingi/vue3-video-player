@@ -67,7 +67,6 @@ export default {
   position: absolute;
 
   container-type: size;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .overlay.active {
   opacity: 100;

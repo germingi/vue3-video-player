@@ -274,6 +274,7 @@ export default {
 }
 .video-container button {
   color: var(--text-colour);
+  font-family: inherit;
 }
 .video-container > video {
   width: 100%;
