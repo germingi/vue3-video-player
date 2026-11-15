@@ -153,12 +153,15 @@ export default {
       this.setSubstate(subtitleId, SubtitleState.ACTIVE);
     },
     searchFunc(searchTerm: string, language: string) {
+      const searchedTerm = searchTerm.toLowerCase();
       this.subtitles = allSubtitles.filter((sub) => {
-        return (
+        const isDownloaded =
+          sub.state === SubtitleState.DOWNLOADED ||
+          sub.state === SubtitleState.ACTIVE;
+        const isMatch =
           sub.language.toLowerCase() === language.toLowerCase() &&
-          (!searchTerm ||
-            sub.title.toLowerCase().includes(searchTerm.toLowerCase()))
-        );
+          (!searchTerm || sub.title.toLowerCase().includes(searchedTerm));
+        return isDownloaded || isMatch;
       });
     },
   },
