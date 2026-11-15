@@ -28,6 +28,7 @@
     "url": "https://github.com/germingi/vue3-video-player"
   },
   "module": "./dist/video-player.js",
+  "types": "./dist/video-player.d.ts",
   "exports": {
     ".": {
       "types": "./dist/video-player.d.ts",
